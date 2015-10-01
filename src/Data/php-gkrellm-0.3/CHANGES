@@ -1,0 +1,18 @@
+0.3 - 29th Oct 2006
+- Overhauled gkrellm_update_cpu (which was only reporting cumulative CPU time)
+- Added GKRELLM_USE_MICROTIME constant to config
+- Added format_bytes() to gkrellm_client
+- Added get_interface_bandwidth_use() and get_disk_activity() to gkrellm_client
+- Better error handling in the event of a terminated connection
+
+0.2 - 15th Oct 2006
+- gkrellm_update_sensors updates
+- gkrellm_update_mail updates
+- Added get_connection_changes to gkrellm_update_inet
+- Added get_batteries/get_battery to gkrellm_update_battery
+- Added get_total functions to gkrellm_update_cpu
+- Bugfix in gkrellm_client::get_initial_update
+- PHP Documentor comments
+
+0.1 - 1st Oct 2006
+- Initial release

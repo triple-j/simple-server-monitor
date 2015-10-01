@@ -1,0 +1,30 @@
+php-gkrellm
+-----------
+
+php-gkrellm is a set of PHP classes that allow you to talk to the gkrellmd monitoring daemon. For more information about gkrellm and gkrellmd, see http://www.gkrellm.net
+
+gkrellmd provides data about the following on the machine on which it's running:
+CPU usage
+Memory usage
+Network interfaces and connections
+Sensors
+Disk usage
+Mounted filesystems
+...and more
+
+These classes allow you to connect to remote (or local, if you like) machines and retrieve all of the information gkrellmd provides.
+
+php-gkrellm is made available under the terms of the GNU GPL.
+
+Requirements
+------------
+
+PHP 5
+php-gkrellm has been tested with gkrellmd version 2.2.9 only (gkrellm doesn't need to be installed on the client machine)
+
+Installation
+------------
+
+Unpack the source files and include the file php-gkrellm.inc.php in the php-gkrellm directory.
+
+See the rough scripts in examples/ for examples of use.
