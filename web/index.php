@@ -16,6 +16,7 @@ $app->addRoutes(function(Spark\Router $r) {
 
     $r->get('/info/cpu', 'Spark\Project\Domain\Cpu');
     $r->get('/info/memory', 'Spark\Project\Domain\Memory');
+    $r->get('/info/swap', 'Spark\Project\Domain\Swap');
 });
 
 $app->run();

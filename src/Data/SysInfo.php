@@ -81,4 +81,22 @@ class SysInfo
 
         return $memData;
     }
+
+    public function get_swap_info()
+    {
+        $this->gkrellm->get_next_update_of_type(GKRELLM_UPDATE_SWAP);
+
+        $swapInfo = $this->gkrellm->get_swap_info();
+
+        $swapData = array(
+            "total"   => $swapInfo->get_total(),
+            "used"    => $swapInfo->get_used(),
+            "in"      => $swapInfo->get_in(),
+            "out"     => $swapInfo->get_out(),
+        );
+
+        $swapData['free'] = $swapData['total'] - $swapData['used'];
+
+        return $swapData;
+    }
 }
