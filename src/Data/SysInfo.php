@@ -79,6 +79,14 @@ class SysInfo
             "shared"  => $memInfo->get_shared(),
         );
 
+        $memData['percent'] = array(
+            "used"    => ($memData['used'] / $memData['total']) * 100,
+            "free"    => ($memData['free'] / $memData['total']) * 100,
+            "cached"  => ($memData['cached'] / $memData['total']) * 100,
+            "buffers" => ($memData['buffers'] / $memData['total']) * 100,
+            "shared"  => ($memData['shared'] / $memData['total']) * 100
+        );
+
         return $memData;
     }
 
@@ -96,6 +104,11 @@ class SysInfo
         );
 
         $swapData['free'] = $swapData['total'] - $swapData['used'];
+
+        $swapData['percent'] = array(
+            "used" => ($swapData['used'] / $swapData['total']) * 100,
+            "free" => ($swapData['free'] / $swapData['total']) * 100
+        );
 
         return $swapData;
     }
