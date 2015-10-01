@@ -15,6 +15,7 @@ $app->addRoutes(function(Spark\Router $r) {
     $r->get('/hello[/{name}]', 'Spark\Project\Domain\Hello');
 
     $r->get('/info/cpu', 'Spark\Project\Domain\Cpu');
+    $r->get('/info/memory', 'Spark\Project\Domain\Memory');
 });
 
 $app->run();

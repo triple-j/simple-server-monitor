@@ -63,4 +63,22 @@ class SysInfo
 
         return $cpuData;
     }
+
+    public function get_mem_info()
+    {
+        $this->gkrellm->get_next_update_of_type(GKRELLM_UPDATE_MEM);
+
+        $memInfo = $this->gkrellm->get_mem_info();
+
+        $memData = array(
+            "total"   => $memInfo->get_total(),
+            "used"    => $memInfo->get_used(),
+            "free"    => $memInfo->get_free(),
+            "cached"  => $memInfo->get_cached(),
+            "buffers" => $memInfo->get_buffers(),
+            "shared"  => $memInfo->get_shared(),
+        );
+
+        return $memData;
+    }
 }
