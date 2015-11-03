@@ -112,4 +112,23 @@ class SysInfo
 
         return $swapData;
     }
+
+    public function get_system_info()
+    {
+        $this->gkrellm->get_next_update_of_type(GKRELLM_UPDATE_TIME);
+        $timeInfo = $this->gkrellm->get_time_info();
+
+        //$this->gkrellm->get_next_update_of_type(GKRELLM_UPDATE_UPTIME);
+        $uptimeInfo = $this->gkrellm->get_uptime_info();
+
+        $systemData = array(
+            "version" => $this->gkrellm->get_server_version(),
+            "host"    => $this->gkrellm->get_hostname(),
+            "os"      => $this->gkrellm->get_sysname(),
+            "time"    => date('r', $timeInfo->get_unix_timestamp()),
+            "uptime"  => $uptimeInfo->get_formatted_uptime()
+        );
+
+        return $systemData;
+    }
 }
