@@ -1,6 +1,6 @@
 <?php
-#ini_set('display_errors', 1);
-#error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);
 
 $filename = basename(__FILE__);
 $request_uri = preg_replace('/^(.*?'.preg_quote($filename).')/i', '', $_SERVER['REQUEST_URI']);
