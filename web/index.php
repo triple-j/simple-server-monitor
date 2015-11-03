@@ -21,6 +21,7 @@ $app->addRoutes(function(Spark\Router $r) {
     $r->get('/info/swap', 'Spark\Project\Domain\Swap');
 
     $r->get('/info/network', 'Spark\Project\Domain\Network');
+    $r->get('/info/bandwidth/{interface}[/{seconds}]', 'Spark\Project\Domain\Bandwidth');
 });
 
 $app->run();

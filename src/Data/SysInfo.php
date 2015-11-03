@@ -3,6 +3,7 @@
 namespace Spark\Project\Data;
 
 use \gkrellm_client;
+use \Exception;
 
 require_once(__DIR__."/php-gkrellm-0.3/php-gkrellm/php-gkrellm.inc.php");
 
@@ -130,5 +131,42 @@ class SysInfo
         );
 
         return $systemData;
+    }
+
+    public function get_network_info()
+    {
+        $this->gkrellm->get_next_update_of_type(GKRELLM_UPDATE_NET);
+        $netInfo = $this->gkrellm->get_net_info();
+
+        $interfaces = $netInfo->get_interfaces();
+
+        $netData = array();
+        foreach($interfaces as $interface) {
+            $ifaceData = array(
+                "interface"   => $interface->get_name(),
+                "received"    => $interface->get_rx(),
+                "transmitted" => $interface->get_tx(),
+                "is_routed"   => (boolean)$interface->is_routed()
+            );
+
+            $netData []= $ifaceData;
+        }
+
+        return $netData;
+    }
+
+    public function get_bandwidth_use($interface, $seconds=2)
+    {
+        //TODO: recreate `get_interface_bandwidth_use` here and separate transferred and received
+
+        $ifaceData = array(
+            "usage" => $this->gkrellm->get_interface_bandwidth_use($interface, $seconds)
+        );
+
+        if (!$ifaceData['usage']) {
+            throw new Exception($this->gkrellm->get_last_error());
+        }
+
+        return $ifaceData;
     }
 }
