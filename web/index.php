@@ -12,6 +12,7 @@ $app->setMiddleware([
 ]);
 
 $app->addRoutes(function(Spark\Router $r) {
+    // JSON output
     $r->get('/hello[/{name}]', 'Spark\Project\Domain\Hello');
 
     $r->get('/info/system', 'Spark\Project\Domain\System');
@@ -22,6 +23,11 @@ $app->addRoutes(function(Spark\Router $r) {
 
     $r->get('/info/network', 'Spark\Project\Domain\Network');
     $r->get('/info/bandwidth/{interface}[/{seconds}]', 'Spark\Project\Domain\Bandwidth');
+
+
+    // HTML output
+    $r->setDefaultResponder('Spark\Project\Responder\TemplateResponder');
+    $r->get('/', 'Spark\Project\Domain\Frontend');
 });
 
 $app->run();
