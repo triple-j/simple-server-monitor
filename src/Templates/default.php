@@ -50,10 +50,29 @@
     </script>
 </head>
 <body ng-app="MyApp">
+<header>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">System Info</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-6" ng-controller="SystemCtrl">
+        <div class="col-sm-6 col-lg-4" ng-controller="SystemCtrl">
             <dl>
                 <dt>Host</dt>
                 <dd>{{system.host}}</dd>
@@ -72,7 +91,7 @@
             </dl>
         </div>
 
-        <div class="col-sm-6" ng-controller="CpuCtrl">
+        <div class="col-sm-6 col-lg-4" ng-controller="CpuCtrl">
             <div ng-repeat="info in cpu.individual">
                 <label>CPU {{info.cpu}}</label>
                 <div class="progress">
@@ -92,10 +111,11 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
+    <!--/div>
+    <div class="row"-->
+        <div class="clearfix visible-sm-block visible-md-block"></div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-lg-4">
             <div>
                 <label>Memory</label>
             </div>
@@ -104,13 +124,21 @@
             </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="clearfix visible-lg-block"></div>
+
+        <div class="col-sm-6 col-lg-4">
             <div>
                 <label>Network</label>
             </div>
         </div>
     </div>
 </div>
+
+<footer>
+    <div class="container">
+        ...
+    </div>
+</footer>
 
 </body>
 </html>
