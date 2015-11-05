@@ -1,4 +1,5 @@
 <?php
+use Spark\Project\Data\Config;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -10,6 +11,8 @@ $app->setMiddleware([
     'Spark\Handler\RouteHandler',
     'Spark\Handler\ActionHandler',
 ]);
+
+Config::parse("config.xml");
 
 $app->addRoutes(function(Spark\Router $r) {
     // JSON output

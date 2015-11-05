@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <!-- just ignore me -->
+    <base>info.php/</base>
+    <connection name="local" address="127.0.0.1" default="true" />
+</config>
