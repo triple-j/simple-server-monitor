@@ -13,7 +13,7 @@ class Frontend implements DomainInterface
         $stuff = array(
             'template' => "default",
             'root'     => Config::getBase(),
-            'title'    => "Simple System Info | " . Config::$bob
+            'title'    => "Simple System Info"
         );
 
         return (new Payload)

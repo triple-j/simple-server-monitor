@@ -8,8 +8,6 @@ use \Exception;
  */
 class Config
 {
-    public static $bob = "is my uncle";
-
     private static $configDirectories = array(__DIR__.'/../../', __DIR__.'/../');
     private static $xmlConfig = null;
 

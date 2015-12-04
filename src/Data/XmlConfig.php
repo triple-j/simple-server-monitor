@@ -34,11 +34,6 @@ class XmlConfig
         return $this->filename;
     }
 
-    public function setFilename($filename)
-    {
-        $this->filename = $filename;
-    }
-
     public function getBase()
     {
         $baseElement = $this->querySelector(':root > base');
