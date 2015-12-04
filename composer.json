@@ -1,6 +1,6 @@
 {
-    "name": "sparkphp/project",
-    "description": "A sample project for building an application using Spark.",
+    "name": "trejeraos/simple-server-monitor",
+    "description": "A simple server monitor utilizing GKrellM to retrieve system statistics.",
     "type": "project",
     "license": "MIT",
     "require": {
@@ -10,13 +10,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spark\\Project\\": "src/"
+            "trejeraos\\SimpleServerMonitor\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Daniel Olfelt",
-            "email": "dolfelt@gmail.com"
+            "name": "Jeremie Jarosh",
+            "email": "jeremie@jarosh.org"
         }
     ]
 }

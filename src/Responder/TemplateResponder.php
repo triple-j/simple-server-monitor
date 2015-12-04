@@ -1,6 +1,6 @@
 <?php
 
-namespace Spark\Project\Responder;
+namespace trejeraos\SimpleServerMonitor\Responder;
 
 use League\Plates\Engine;
 //use League\Plates\Template\Template;

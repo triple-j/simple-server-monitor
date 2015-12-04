@@ -1,10 +1,10 @@
 <?php
 
-namespace Spark\Project\Domain;
+namespace trejeraos\SimpleServerMonitor\Domain;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
-use Spark\Project\Data\SysInfo;
+use trejeraos\SimpleServerMonitor\Data\SysInfo;
 
 class System implements DomainInterface
 {

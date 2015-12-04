@@ -1,5 +1,5 @@
 <?php
-use Spark\Project\Data\Config;
+use trejeraos\SimpleServerMonitor\Data\Config;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -16,21 +16,19 @@ Config::parse("config.xml");
 
 $app->addRoutes(function(Spark\Router $r) {
     // JSON output
-    $r->get('/hello[/{name}]', 'Spark\Project\Domain\Hello');
+    $r->get('/info/system', 'trejeraos\SimpleServerMonitor\Domain\System');
 
-    $r->get('/info/system', 'Spark\Project\Domain\System');
+    $r->get('/info/cpu', 'trejeraos\SimpleServerMonitor\Domain\Cpu');
+    $r->get('/info/memory', 'trejeraos\SimpleServerMonitor\Domain\Memory');
+    $r->get('/info/swap', 'trejeraos\SimpleServerMonitor\Domain\Swap');
 
-    $r->get('/info/cpu', 'Spark\Project\Domain\Cpu');
-    $r->get('/info/memory', 'Spark\Project\Domain\Memory');
-    $r->get('/info/swap', 'Spark\Project\Domain\Swap');
-
-    $r->get('/info/network', 'Spark\Project\Domain\Network');
-    $r->get('/info/bandwidth/{interface}[/{seconds}]', 'Spark\Project\Domain\Bandwidth');
+    $r->get('/info/network', 'trejeraos\SimpleServerMonitor\Domain\Network');
+    $r->get('/info/bandwidth/{interface}[/{seconds}]', 'trejeraos\SimpleServerMonitor\Domain\Bandwidth');
 
 
     // HTML output
-    $r->setDefaultResponder('Spark\Project\Responder\TemplateResponder');
-    $r->get('/', 'Spark\Project\Domain\Frontend');
+    $r->setDefaultResponder('trejeraos\SimpleServerMonitor\Responder\TemplateResponder');
+    $r->get('/', 'trejeraos\SimpleServerMonitor\Domain\Frontend');
 });
 
 $app->run();

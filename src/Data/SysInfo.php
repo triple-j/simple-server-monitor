@@ -1,6 +1,6 @@
 <?php
 
-namespace Spark\Project\Data;
+namespace trejeraos\SimpleServerMonitor\Data;
 
 use \gkrellm_client;
 use \Exception;
