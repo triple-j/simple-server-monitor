@@ -24,8 +24,8 @@ class Authenticate implements DomainInterface
 
         $payload->withStatus(Payload::OK);
         return $payload->withOutput([
-            'user' => $username,
-            'token' => $token,
+            'user'  => $token->getMetadata('username'),
+            'token' => $token->getToken(),
         ]);
     }
 }

@@ -2,11 +2,19 @@
 namespace trejeraos\SparkTest;
 
 use \Exception;
+use Spark\Auth\Credentials;
+
+//TODO: create configuration parsing exception
 
 class Configuration {
     public $my_name;
 
     protected $file_path;
+
+    /**
+     * @var \Spark\Auth\Credentials
+     */
+    protected $credentials;
 
     public function __construct($filename, $directories) {
         $this->my_name = "Steve";
@@ -46,5 +54,18 @@ class Configuration {
         if (isset($data['general']['my_name'])) {
             $this->my_name = $data['general']['my_name'];
         }
+
+        if (isset($data['credentials']['username']) && isset($data['credentials']['password'])) {
+            $this->credentials = new Credentials($data['credentials']['username'], $data['credentials']['password']);
+        } else {
+            throw new Exception("No credentials set.");
+        }
+    }
+
+    /**
+     * @return \Spark\Auth\Credentials
+     */
+    public function getCredentials() {
+        return $this->credentials;
     }
 }

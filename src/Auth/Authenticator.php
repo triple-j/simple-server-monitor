@@ -8,13 +8,18 @@ use Spark\Auth\Exception\InvalidException;
 use Spark\Auth\Exception\AuthException;
 use trejeraos\SparkTest\Configuration;
 
+## Based on -- https://www.webstreaming.com.ar/articles/php-slim-token-authentication/
+
 class Authenticator implements AdapterInterface
 {
-    protected $config;
+    /**
+     * @var \Spark\Auth\Credentials
+     */
+    protected $credentials;
 
     public function __construct(Configuration $config)
     {
-        $this->config = $config;
+        $this->credentials = $config->getCredentials();
     }
 
     /**
@@ -38,7 +43,7 @@ class Authenticator implements AdapterInterface
     {
         var_dump($token);
 
-        return new Token($this->config->my_name, array());
+        return new Token("bob", array());
     }
 
     /**
@@ -61,6 +66,35 @@ class Authenticator implements AdapterInterface
     public function validateCredentials(Credentials $credentials)
     {
         var_dump($credentials);
-        return new Token($this->config->my_name, array());
+
+        $offered_identifier = $credentials->getIdentifier();
+        $offered_password   = $credentials->getPassword();
+
+        $expected_identifier = $this->credentials->getIdentifier();
+        $expected_password   = $this->credentials->getPassword();
+
+        if (
+            $offered_identifier == $expected_identifier
+            && $offered_password == $expected_password
+        ) {
+            // generate a random token string
+            $token_string = bin2hex(openssl_random_pseudo_bytes(16));
+
+            $metadata = array(
+                'username'   => $offered_identifier, // just for reference
+                'expiration' => date('Y-m-d H:i:s', strtotime('+1 hour')) // the expiration date will be in one hour from the current moment
+            );
+
+            $token = new Token($token_string, $metadata);
+
+            // update the token in the database and set the expiration date-time
+            #$this->updateToken($token);
+        } else {
+            throw new InvalidException;
+        }
+
+
+
+        return $token;
     }
 }
