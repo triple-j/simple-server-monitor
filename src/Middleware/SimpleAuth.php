@@ -41,7 +41,6 @@ class SimpleAuth extends AuthHandler
         } elseif ($credentials = $this->credentials->getCredentials($request)) {
             $this->auth_type = self::CREDENTIALS;
             $this->offered_credentials = $credentials;
-            var_dump($credentials);
         } else {
             $this->auth_type = self::NONE;
         }

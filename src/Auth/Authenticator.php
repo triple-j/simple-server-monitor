@@ -60,7 +60,6 @@ class Authenticator implements AdapterInterface
      */
     public function validateCredentials(Credentials $credentials)
     {
-        //TODO: figure out why this is being run twice
         var_dump($credentials);
         return new Token($this->config->my_name, array());
     }
