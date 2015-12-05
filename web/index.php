@@ -13,7 +13,7 @@ $configuration->apply($injector);
 // Configure middleware
 $injector->alias(
     '\\Spark\\Middleware\\Collection',
-    '\\Spark\\Middleware\\DefaultCollection'
+    '\\trejeraos\\SparkTest\\Middleware\\FooCollection'
 );
 
 // get global config values
