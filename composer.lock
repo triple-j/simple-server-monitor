@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "31c36d9a3a1b4db0b127ea9434d106bb",
-    "content-hash": "5af12f80013e90fd272da23249fe2039",
+    "hash": "316357e9883eb6880215dc6def320bd1",
+    "content-hash": "475463731bed9f9c784c6cc822faccdc",
     "packages": [
         {
             "name": "arbiter/arbiter",
@@ -325,6 +325,55 @@
             ],
             "description": "Interfaces for Action Domain Responder pattern",
             "time": "2015-08-26 15:42:52"
+        },
+        {
+            "name": "sparkphp/auth",
+            "version": "0.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sparkphp/auth.git",
+                "reference": "bb3014e8d077a29b1c286c96034dce9966bc14bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sparkphp/auth/zipball/bb3014e8d077a29b1c286c96034dce9966bc14bd",
+                "reference": "bb3014e8d077a29b1c286c96034dce9966bc14bd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "psr/http-message": "^1",
+                "sparkphp/adr": "^0.2"
+            },
+            "require-dev": {
+                "firebase/php-jwt": "^3",
+                "lcobucci/jwt": "^3",
+                "phake/phake": "^2",
+                "phpunit/phpunit": "^4",
+                "satooshi/php-coveralls": "^0.6"
+            },
+            "suggest": {
+                "firebase/php-jwt": "For integrating JWT support with Jwt\\Firebase* classes",
+                "lcobucci/jwt": "For integrating JWT support with Jwt\\Lcobucci* classes"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spark\\Auth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Olfelt",
+                    "email": "dolfelt@gmail.com"
+                }
+            ],
+            "description": "Simple middleware for handling authentication.",
+            "time": "2015-11-13 20:29:10"
         },
         {
             "name": "sparkphp/domain",

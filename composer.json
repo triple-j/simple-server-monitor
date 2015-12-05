@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "sparkphp/spark": "^0.8.0"
+        "sparkphp/spark": "^0.8.0",
+        "sparkphp/auth": "^0.2.2"
     },
     "autoload": {
         "psr-4": {
