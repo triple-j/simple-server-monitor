@@ -2,8 +2,8 @@
 // Include Composer autoloader
 require __DIR__ . '/../vendor/autoload.php';
 
+use Spark\Auth\AuthHandler;
 use Spark\Auth\AdapterInterface;
-use Spark\Auth\RequestFilterInterface;
 use Spark\Auth\Token\ExtractorInterface as TokenExtractorInterface;
 use Spark\Auth\Token\QueryExtractor;
 use Spark\Auth\Credentials\ExtractorInterface as CredentialsExtractorInterface;
@@ -23,9 +23,7 @@ $injector->alias(
 );
 
 //START: auth
-// Share the Authentication class across the request
-#$injector->share(Data\Authenticator::class);
-#$injector->alias('\\Spark\\Auth\\AbstractAuthenticator', '\\Data\\Authenticator');
+$injector->share(trejeraos\SparkTest\Middleware\SimpleAuth::class);
 
 // get auth token
 $injector->alias(
@@ -54,8 +52,8 @@ $injector->alias(
 );
 
 $injector->alias(
-    RequestFilterInterface::class,
-    trejeraos\SparkTest\Auth\RequestFilter::class
+    AuthHandler::class,
+    trejeraos\SparkTest\Middleware\SimpleAuth::class
 );
 //END: auth
 

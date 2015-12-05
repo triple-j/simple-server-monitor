@@ -5,9 +5,10 @@ class FooCollection extends \Spark\Middleware\Collection
 {
     public function __construct(\Spark\Middleware\DefaultCollection $defaults)
     {
-        $middlewares = array_merge($defaults->getArrayCopy(), [
-            FooMiddleware::class,
-            \Spark\Auth\AuthHandler::class
+        $middlewares = array_merge([
+            SimpleAuth::class
+        ], $defaults->getArrayCopy(), [
+            FooMiddleware::class
         ]);
         parent::__construct($middlewares);
     }

@@ -3,14 +3,13 @@ namespace trejeraos\SparkTest\Domain\Login;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
-use Spark\Auth\Credentials;
-use trejeraos\SparkTest\Auth\Authenticator;
+use trejeraos\SparkTest\Middleware\SimpleAuth;
 
 class Authenticate implements DomainInterface
 {
     protected $auth;
 
-    public function __construct(Authenticator $auth)
+    public function __construct(SimpleAuth $auth)
     {
         $this->auth = $auth;
     }
@@ -19,21 +18,9 @@ class Authenticate implements DomainInterface
     {
         $payload = new Payload();
 
-        /*if (empty($input['user']) || empty($input['password'])) {
-            $payload->withStatus(Payload::ERROR);
-            return $payload->withInput(['error' => 'Please include both username and password fields.']);
-        }*/
+        $username = "unknown";
 
-        $username = "bob"; #$input['user'];
-        $password = "teapot"; #$input['password'];
-
-        $token = $this->auth->validateCredentials(new Credentials($username, $password));
-
-        // Password validation failed
-        /*if (!$token) {
-            $payload->withStatus(Payload::ERROR);
-            return $payload->withInput(['error' => 'No user with that password.']);
-        }*/
+        $token = $this->auth->authenticate();
 
         $payload->withStatus(Payload::OK);
         return $payload->withOutput([
