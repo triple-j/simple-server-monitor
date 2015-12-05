@@ -3,6 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use trejeraos\SparkTest\Domain;
+use trejeraos\SparkTest\Configuration;
 
 // Configure the dependency injection container
 $injector = new \Auryn\Injector;
@@ -14,6 +15,10 @@ $injector->alias(
     '\\Spark\\Middleware\\Collection',
     '\\Spark\\Middleware\\DefaultCollection'
 );
+
+// get global config values
+$shared_config = new Configuration("config.ini", array(__DIR__.'/../', __DIR__.'/../src/'));
+$injector->share($shared_config);
 
 // Configure the router
 $injector->prepare(
