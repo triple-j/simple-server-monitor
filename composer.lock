@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "316357e9883eb6880215dc6def320bd1",
-    "content-hash": "475463731bed9f9c784c6cc822faccdc",
+    "hash": "92b996815c22f937abbd62642539ed84",
+    "content-hash": "960b158d5a96972dd0cc5fe46bb7adf2",
     "packages": [
         {
             "name": "arbiter/arbiter",
@@ -468,6 +468,98 @@
             ],
             "description": "A tiny framework that can start anything.",
             "time": "2015-12-04 20:01:36"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "b600fec37c0efca08046d481d79e7eabc07108ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/b600fec37c0efca08046d481d79e7eabc07108ff",
+                "reference": "b600fec37c0efca08046d481d79e7eabc07108ff",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-10-30 20:15:42"
+        },
+        {
+            "name": "trejeraos/dom-selector",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/triple-j/DOMSelector.git",
+                "reference": "26e6a8eb5dadbb63b0db1db753ed8f973fa237fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/triple-j/DOMSelector/zipball/26e6a8eb5dadbb63b0db1db753ed8f973fa237fd",
+                "reference": "26e6a8eb5dadbb63b0db1db753ed8f973fa237fd",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/css-selector": "~2.8.0"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "trejeraos\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremie Jarosh",
+                    "email": "jeremie@jarosh.org"
+                }
+            ],
+            "description": "This package makes selecting XML elements easy by using CSS like selectors",
+            "support": {
+                "source": "https://github.com/triple-j/DOMSelector/tree/v0.3.0",
+                "issues": "https://github.com/triple-j/DOMSelector/issues"
+            },
+            "time": "2015-12-05 21:51:19"
         },
         {
             "name": "willdurand/negotiation",

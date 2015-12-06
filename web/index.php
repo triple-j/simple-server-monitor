@@ -63,6 +63,10 @@ $injector->alias(
 $shared_config = new Configuration("config.ini", array(__DIR__.'/../', __DIR__.'/../src/'));
 $injector->share($shared_config);
 
+
+$injector->share(\trejeraos\SparkTest\Auth\ValidTokens::class);
+
+
 // Configure the router
 $injector->prepare(
     '\\Spark\\Router',

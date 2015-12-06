@@ -1,12 +1,14 @@
 <?php
 namespace trejeraos\SparkTest\Auth;
 
+use \DateTime;
 use Spark\Auth\AdapterInterface;
 use Spark\Auth\Credentials;
 use Spark\Auth\Token;
 use Spark\Auth\Exception\InvalidException;
 use Spark\Auth\Exception\AuthException;
 use trejeraos\SparkTest\Configuration;
+use trejeraos\SparkTest\Auth\ValidTokens;
 
 ## Based on -- https://www.webstreaming.com.ar/articles/php-slim-token-authentication/
 
@@ -17,9 +19,16 @@ class Authenticator implements AdapterInterface
      */
     protected $credentials;
 
-    public function __construct(Configuration $config)
+    /**
+     * @var \trejeraos\SparkTest\Auth\ValidTokens
+     */
+    protected $valid_tokens;
+
+
+    public function __construct(Configuration $config, ValidTokens $valid_tokens)
     {
         $this->credentials = $config->getCredentials();
+        $this->valid_tokens = $valid_tokens;
     }
 
     /**
@@ -41,9 +50,25 @@ class Authenticator implements AdapterInterface
      */
     public function validateToken($token)
     {
-        var_dump($token);
+        #var_dump($token);
 
-        return new Token("bob", array());
+        $valid_token = $this->valid_tokens->getToken($token);
+
+        if (!is_null($valid_token)) {
+            $metadata = array(
+                'username'   => $valid_token->getMetadata('username'),
+                'expiration' => date(DateTime::ATOM, strtotime('+1 hour'))  //TODO: move into ValidTokens?
+            );
+
+            $updated_token = new Token($token, $metadata);
+
+            // update the token in the database and set the expiration date-time
+            $this->valid_tokens->updateToken($updated_token);
+        } else {
+            throw new InvalidException;
+        }
+
+        return $updated_token;
     }
 
     /**
@@ -65,7 +90,7 @@ class Authenticator implements AdapterInterface
      */
     public function validateCredentials(Credentials $credentials)
     {
-        var_dump($credentials);
+        #var_dump($credentials);
 
         $offered_identifier = $credentials->getIdentifier();
         $offered_password   = $credentials->getPassword();
@@ -82,13 +107,13 @@ class Authenticator implements AdapterInterface
 
             $metadata = array(
                 'username'   => $offered_identifier, // just for reference
-                'expiration' => date('Y-m-d H:i:s', strtotime('+1 hour')) // the expiration date will be in one hour from the current moment
+                'expiration' => date(DateTime::ATOM, strtotime('+1 hour')) // the expiration date will be in one hour from the current moment
             );
 
             $token = new Token($token_string, $metadata);
 
             // update the token in the database and set the expiration date-time
-            #$this->updateToken($token);
+            $this->valid_tokens->updateToken($token);
         } else {
             throw new InvalidException;
         }
