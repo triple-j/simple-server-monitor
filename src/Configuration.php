@@ -2,70 +2,77 @@
 namespace trejeraos\SparkTest;
 
 use \Exception;
+use \DOMDocument;
 use Spark\Auth\Credentials;
+use trejeraos\DOMSelector;
 
 //TODO: create configuration parsing exception
 
 class Configuration {
-    public $my_name;
 
-    protected $file_path;
+    protected $defualt_file = __DIR__ . "/config.xml";
+    protected $user_file    = __DIR__ . "/../data/config.xml";
+
+    /**
+     * @var DOMDocument
+     */
+    protected $document;
+
+    /**
+     * @var trejeraos\DOMSelector
+     */
+    protected $dom;
 
     /**
      * @var \Spark\Auth\Credentials
      */
-    protected $credentials;
+    #protected $credentials;
 
-    public function __construct($filename, $directories) {
-        $this->my_name = "Steve";
+    public function __construct() {
+        #$this->my_name = "Steve";
 
-        $filepath = $this->locate($filename, $directories);
-
-        if (is_null($filepath)) {
-            throw new Exception("The file '{$filename}' was not found");
-        }
-
-        $this->file_path = $filepath;
-        $this->parseINI();
-    }
-
-    protected function locate($filename, $directories)
-    {
-        $filepath = null;
-
-        foreach ($directories as $dir) {
-            if (is_file($dir.$filename)) {
-                $filepath = realpath($dir.$filename);
-                break;
+        if (!is_file($this->user_file)) {
+            if (!copy($this->defualt_file, $this->user_file)) {
+                throw new Exception("Unable to create configuration file.");
             }
         }
 
-        return $filepath;
+        $this->loadXMLFile();
     }
 
-    protected function parseINI()
-    {
-        $data = parse_ini_file($this->file_path, true);
-
-        if ($data === false) {
-            throw new Exception("The file '{$this->file_path}' could not be parsed.");
-        }
-
-        if (isset($data['general']['my_name'])) {
-            $this->my_name = $data['general']['my_name'];
-        }
-
-        if (isset($data['credentials']['username']) && isset($data['credentials']['password'])) {
-            $this->credentials = new Credentials($data['credentials']['username'], $data['credentials']['password']);
-        } else {
-            throw new Exception("No credentials set.");
-        }
+    public function getMyName() {
+        return $this->dom->querySelector('option[name="my_name"]')->nodeValue;
     }
 
     /**
      * @return \Spark\Auth\Credentials
      */
     public function getCredentials() {
-        return $this->credentials;
+        $cred_node = $this->dom->querySelector('credentials');
+        $username = $cred_node->getAttribute('username');
+        $password = $cred_node->getAttribute('password');
+
+        if ($username && !is_null($password)) {
+            return new Credentials($username, $password);
+        } else {
+            throw new Exception("No credentials set.");
+        }
+    }
+
+    protected function loadXMLFile()
+    {
+        $this->document = new DOMDocument();
+
+        $this->document->preserveWhiteSpace = false;
+        $this->document->formatOutput = true;
+
+        $this->document->load($this->user_file);
+
+        $this->dom = new DOMSelector($this->document);
+    }
+
+    protected function saveXMLFile()
+    {
+        $this->document->save($this->user_file);
     }
 }

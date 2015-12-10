@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <credentials username="admin" password="password" />
+    <general>
+        <option name="my_name">Kenneth</option>
+    </general>
+</configuration>

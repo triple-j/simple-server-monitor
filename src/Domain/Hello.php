@@ -26,7 +26,7 @@ class Hello implements DomainInterface
             ->withStatus(Payload::OK)
             ->withOutput([
                 'hello' => $name,
-                'my_name' => $this->config->my_name
+                'my_name' => $this->config->getMyName()
             ]);
     }
 }

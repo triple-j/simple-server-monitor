@@ -60,8 +60,7 @@ $injector->alias(
 
 
 // get global config values
-$shared_config = new Configuration("config.ini", array(__DIR__.'/../', __DIR__.'/../src/'));
-$injector->share($shared_config);
+$injector->share(Configuration::class);
 
 
 $injector->share(\trejeraos\SparkTest\Auth\ValidTokens::class);
