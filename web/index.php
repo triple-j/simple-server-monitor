@@ -75,6 +75,9 @@ $injector->prepare(
 
         // ...
         $router->get('/hello[/{name}]', Domain\Hello::class);
+
+        // PUT
+        $router->put('/name', Domain\Name::class);
     }
 );
 

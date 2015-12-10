@@ -44,6 +44,11 @@ class Configuration {
         return $this->dom->querySelector('option[name="my_name"]')->nodeValue;
     }
 
+    public function setMyName($name) {
+        $this->dom->querySelector('option[name="my_name"]')->nodeValue = $name;
+        $this->saveXMLFile();
+    }
+
     /**
      * @return \Spark\Auth\Credentials
      */
