@@ -12,7 +12,7 @@ class TemplateResponder extends PlatesResponder
 
     public function __construct()
     {
-        $engine = new Engine(__DIR__ . '/../Templates');
+        $engine = new Engine(__DIR__ . '/../../templates');
 
         parent::__construct($engine);
     }
