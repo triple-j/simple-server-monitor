@@ -116,28 +116,34 @@
         <div class="clearfix visible-sm-block visible-md-block"></div>
 
         <div class="col-sm-6 col-lg-4">
+            <!--
             <div>
                 <label>Memory</label>
             </div>
             <div>
                 <label>Swap</label>
             </div>
+            -->
         </div>
 
         <div class="clearfix visible-lg-block"></div>
 
         <div class="col-sm-6 col-lg-4">
+            <!--
             <div>
                 <label>Network</label>
             </div>
+            -->
         </div>
     </div>
 </div>
 
 <footer>
+    <!--
     <div class="container">
         ...
     </div>
+    -->
 </footer>
 
 </body>
