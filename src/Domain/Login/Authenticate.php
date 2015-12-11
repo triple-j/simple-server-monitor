@@ -1,26 +1,19 @@
 <?php
 namespace trejeraos\SparkTest\Domain\Login;
 
-use Spark\Adr\DomainInterface;
 use Spark\Payload;
 use trejeraos\SparkTest\Middleware\SimpleAuth;
+use trejeraos\SparkTest\Domain\Restricted;
 
-class Authenticate implements DomainInterface
+class Authenticate extends Restricted
 {
-    protected $auth;
-
-    public function __construct(SimpleAuth $auth)
-    {
-        $this->auth = $auth;
-    }
-
     public function __invoke(array $input)
     {
         $payload = new Payload();
 
         $username = "unknown";
 
-        $token = $this->auth->authenticate();
+        $token = $this->token;
 
         $payload->withStatus(Payload::OK);
         return $payload->withOutput([
