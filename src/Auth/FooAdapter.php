@@ -12,7 +12,7 @@ use trejeraos\SparkTest\Auth\ValidTokens;
 
 ## Based on -- https://www.webstreaming.com.ar/articles/php-slim-token-authentication/
 
-class Authenticator implements AdapterInterface
+class FooAdapter implements AdapterInterface
 {
     /**
      * @var \Spark\Auth\Credentials

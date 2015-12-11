@@ -2,7 +2,6 @@
 namespace trejeraos\SparkTest\Domain\Login;
 
 use Spark\Payload;
-use trejeraos\SparkTest\Middleware\SimpleAuth;
 use trejeraos\SparkTest\Domain\Restricted;
 
 class Authenticate extends Restricted

@@ -6,7 +6,7 @@ class FooCollection extends \Spark\Middleware\Collection
     public function __construct(\Spark\Middleware\DefaultCollection $defaults)
     {
         $middlewares = array_merge([
-            SimpleAuth::class
+            \trejeraos\SparkTest\Auth\FooHandler::class
         ], $defaults->getArrayCopy(), [
             FooMiddleware::class
         ]);

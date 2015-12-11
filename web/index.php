@@ -8,6 +8,7 @@ use Spark\Auth\Token\ExtractorInterface as TokenExtractorInterface;
 use Spark\Auth\Token\QueryExtractor;
 use Spark\Auth\Credentials\ExtractorInterface as CredentialsExtractorInterface;
 use Spark\Auth\Credentials\JsonExtractor;
+use trejeraos\SparkTest\Auth\FooHandler as FooAuthHandler;
 use trejeraos\SparkTest\Domain;
 use trejeraos\SparkTest\Data\Configuration;
 
@@ -23,7 +24,7 @@ $injector->alias(
 );
 
 //START: auth
-$injector->share(trejeraos\SparkTest\Middleware\SimpleAuth::class);
+$injector->share(FooAuthHandler::class);
 
 // get auth token
 $injector->alias(
@@ -48,12 +49,12 @@ $injector->define(
 
 $injector->alias(
     AdapterInterface::class,
-    trejeraos\SparkTest\Auth\Authenticator::class
+    trejeraos\SparkTest\Auth\FooAdapter::class
 );
 
 $injector->alias(
     AuthHandler::class,
-    trejeraos\SparkTest\Middleware\SimpleAuth::class
+    FooAuthHandler::class
 );
 //END: auth
 

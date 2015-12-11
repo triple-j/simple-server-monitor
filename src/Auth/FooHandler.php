@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Middleware;
+namespace trejeraos\SparkTest\Auth;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -9,7 +9,7 @@ use Spark\Auth\Credentials\ExtractorInterface as CredentialsExtractor;
 use Spark\Auth\Token\ExtractorInterface as TokenExtractor;
 use Spark\Auth\Exception\UnauthorizedException;
 
-class SimpleAuth extends AuthHandler
+class FooHandler extends AuthHandler
 {
     protected $config;
     protected $auth_type = 0;
