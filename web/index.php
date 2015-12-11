@@ -10,7 +10,6 @@ use Spark\Auth\Credentials\ExtractorInterface as CredentialsExtractorInterface;
 use Spark\Auth\Credentials\JsonExtractor;
 use trejeraos\SparkTest\Auth\FooHandler as FooAuthHandler;
 use trejeraos\SparkTest\Domain;
-use trejeraos\SparkTest\Data\Configuration;
 
 // Configure the dependency injection container
 $injector = new \Auryn\Injector;
@@ -24,50 +23,24 @@ $injector->alias(
 );
 
 //START: auth
+$injector->alias(AdapterInterface::class, trejeraos\SparkTest\Auth\FooAdapter::class);
+$injector->alias(AuthHandler::class, FooAuthHandler::class);
 $injector->share(FooAuthHandler::class);
 
 // get auth token
-$injector->alias(
-    TokenExtractorInterface::class,
-    QueryExtractor::class
-);
-$injector->define(
-    QueryExtractor::class,
-    [':parameter' => 'tok']
-);
+$injector->alias(TokenExtractorInterface::class, QueryExtractor::class);
+$injector->define(QueryExtractor::class, [':parameter' => 'tok']);
 
 // get auth credentials
-$injector->alias(
-    CredentialsExtractorInterface::class,
-    JsonExtractor::class
-);
-$injector->define(
-    JsonExtractor::class,
-    [':identifier' => 'user', ':password' => 'password']
-);
+$injector->alias(CredentialsExtractorInterface::class, JsonExtractor::class);
+$injector->define(JsonExtractor::class, [':identifier' => 'user', ':password' => 'password']);
 
-
-$injector->alias(
-    AdapterInterface::class,
-    trejeraos\SparkTest\Auth\FooAdapter::class
-);
-
-$injector->alias(
-    AuthHandler::class,
-    FooAuthHandler::class
-);
+// share valid auth token class
+$injector->share(\trejeraos\SparkTest\Auth\ValidTokens::class);
 //END: auth
 
-
-
-// get global config values
-$injector->share(Configuration::class);
-
-
-$injector->share(\trejeraos\SparkTest\Auth\ValidTokens::class);
-
-
-
+// share global config class
+$injector->share(\trejeraos\SparkTest\Data\Configuration::class);
 
 // Configure the router
 $injector->prepare(
