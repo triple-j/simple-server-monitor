@@ -3,20 +3,28 @@
     "description": "A simple server monitor utilizing GKrellM to retrieve system statistics.",
     "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremie J. Jarosh",
+            "email": "jeremie@jarosh.org"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/triple-j/DOMSelector.git"
+        }
+    ],
     "require": {
-        "sparkphp/spark": "^0.4",
-        "league/plates": "^3.1",
-        "symfony/css-selector": "^2.7"
+        "sparkphp/spark": "^0.8.0",
+        "sparkphp/auth": "^0.2.2",
+        "trejeraos/dom-selector": "~0.3.0",
+        "league/plates": "^3.1"
     },
     "autoload": {
         "psr-4": {
-            "trejeraos\\SimpleServerMonitor\\": "src/"
+            "trejeraos\\SimpleServerMonitor\\": "src/",
+            "trejeraos\\SparkTest\\": "src/"
         }
-    },
-    "authors": [
-        {
-            "name": "Jeremie Jarosh",
-            "email": "jeremie@jarosh.org"
-        }
-    ]
+    }
 }

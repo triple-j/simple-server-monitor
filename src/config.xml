@@ -1,6 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<config>
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <credentials username="admin" password="password" />
+    <general>
+        <option name="my_name">Kenneth</option>
+    </general>
     <!-- just ignore me -->
     <base>info.php/</base>
     <connection name="local" address="127.0.0.1" default="true" />
-</config>
+</configuration>
