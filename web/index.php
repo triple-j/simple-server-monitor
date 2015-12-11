@@ -16,14 +16,14 @@ Config::parse("config.xml");
 
 $app->addRoutes(function(Spark\Router $r) {
     // JSON output
-    $r->get('/info/system', 'trejeraos\SimpleServerMonitor\Domain\System');
+    $r->get('/info/system', 'trejeraos\SimpleServerMonitor\Domain\Monitor\System');
 
-    $r->get('/info/cpu', 'trejeraos\SimpleServerMonitor\Domain\Cpu');
-    $r->get('/info/memory', 'trejeraos\SimpleServerMonitor\Domain\Memory');
-    $r->get('/info/swap', 'trejeraos\SimpleServerMonitor\Domain\Swap');
+    $r->get('/info/cpu', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Cpu');
+    $r->get('/info/memory', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Memory');
+    $r->get('/info/swap', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Swap');
 
-    $r->get('/info/network', 'trejeraos\SimpleServerMonitor\Domain\Network');
-    $r->get('/info/bandwidth/{interface}[/{seconds}]', 'trejeraos\SimpleServerMonitor\Domain\Bandwidth');
+    $r->get('/info/network', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Network');
+    $r->get('/info/bandwidth/{interface}[/{seconds}]', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Bandwidth');
 
 
     // HTML output

@@ -1,6 +1,6 @@
 <?php
 
-namespace trejeraos\SimpleServerMonitor\Domain;
+namespace trejeraos\SimpleServerMonitor\Domain\Monitor;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;

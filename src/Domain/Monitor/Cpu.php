@@ -1,21 +1,21 @@
 <?php
 
-namespace trejeraos\SimpleServerMonitor\Domain;
+namespace trejeraos\SimpleServerMonitor\Domain\Monitor;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
 use trejeraos\SimpleServerMonitor\Data\SysInfo;
 
-class Memory implements DomainInterface
+class Cpu implements DomainInterface
 {
     public function __invoke(array $input)
     {
         $system = new SysInfo();  //TODO: try catch block (connection issues)
 
-        $information = $system->get_mem_info();
+        $cpuInfo = $system->get_cpu_info();
 
         return (new Payload)
             ->withStatus(Payload::OK)
-            ->withOutput($information);
+            ->withOutput($cpuInfo);
     }
 }
