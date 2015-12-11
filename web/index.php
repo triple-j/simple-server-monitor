@@ -66,6 +66,8 @@ $injector->share(Configuration::class);
 $injector->share(\trejeraos\SparkTest\Auth\ValidTokens::class);
 
 
+
+
 // Configure the router
 $injector->prepare(
     '\\Spark\\Router',
@@ -75,6 +77,7 @@ $injector->prepare(
 
         // ...
         $router->get('/hello[/{name}]', Domain\Hello::class);
+        $router->get('/plates[/{name}]', Domain\HelloPlates::class)->setResponder(\trejeraos\SparkTest\Responder\TemplateResponder::class);;
 
         // PUT
         $router->put('/name', Domain\Name::class);
