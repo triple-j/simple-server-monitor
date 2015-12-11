@@ -3,7 +3,7 @@ namespace trejeraos\SparkTest\Domain;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
-use trejeraos\SparkTest\Configuration;
+use trejeraos\SparkTest\Data\Configuration;
 use trejeraos\SparkTest\Middleware\SimpleAuth;
 
 class Name extends Restricted

@@ -7,7 +7,7 @@ use Spark\Auth\Credentials;
 use Spark\Auth\Token;
 use Spark\Auth\Exception\InvalidException;
 use Spark\Auth\Exception\AuthException;
-use trejeraos\SparkTest\Configuration;
+use trejeraos\SparkTest\Data\Configuration;
 use trejeraos\SparkTest\Auth\ValidTokens;
 
 ## Based on -- https://www.webstreaming.com.ar/articles/php-slim-token-authentication/

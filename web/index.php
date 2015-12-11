@@ -9,7 +9,7 @@ use Spark\Auth\Token\QueryExtractor;
 use Spark\Auth\Credentials\ExtractorInterface as CredentialsExtractorInterface;
 use Spark\Auth\Credentials\JsonExtractor;
 use trejeraos\SparkTest\Domain;
-use trejeraos\SparkTest\Configuration;
+use trejeraos\SparkTest\Data\Configuration;
 
 // Configure the dependency injection container
 $injector = new \Auryn\Injector;

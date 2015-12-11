@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest;
+namespace trejeraos\SparkTest\Data;
 
 use \Exception;
 use \DOMDocument;
@@ -10,8 +10,8 @@ use trejeraos\DOMSelector;
 
 class Configuration {
 
-    protected $defualt_file = __DIR__ . "/config.xml";
-    protected $user_file    = __DIR__ . "/../data/config.xml";
+    protected $defualt_file = __DIR__ . "/../config.xml";
+    protected $user_file    = __DIR__ . "/../../data/config.xml";
 
     /**
      * @var DOMDocument
