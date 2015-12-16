@@ -53,11 +53,11 @@ $injector->prepare(
         $router->post('/auth', Domain\Login\Authenticate::class);
 
         // ...
-        $router->get('/hello[/{name}]', Domain\Hello::class);
-        $router->get('/plates[/{name}]', Domain\HelloPlates::class)->setResponder(\trejeraos\SimpleServerMonitor\Responder\TemplateResponder::class);
+        $router->get('/test/hello[/{name}]', Domain\Test\Hello::class);
+        $router->get('/test/plates[/{name}]', Domain\Test\HelloPlates::class)->setResponder(\trejeraos\SimpleServerMonitor\Responder\TemplateResponder::class);
 
         // PUT
-        $router->put('/name', Domain\Name::class);
+        $router->put('/test/name', Domain\Test\Name::class);
 
         // ---
 

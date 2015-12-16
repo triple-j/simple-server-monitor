@@ -1,10 +1,11 @@
 <?php
-namespace trejeraos\SparkTest\Domain;
+namespace trejeraos\SparkTest\Domain\Test;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
 use trejeraos\SparkTest\Data\Configuration;
 use trejeraos\SparkTest\Auth\FooHandler as FooAuthHandler;
+use trejeraos\SparkTest\Domain\Restricted;
 
 class Name extends Restricted
 {

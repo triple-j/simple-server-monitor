@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Domain;
+namespace trejeraos\SparkTest\Domain\Test;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
