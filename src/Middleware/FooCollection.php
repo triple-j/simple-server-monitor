@@ -7,9 +7,7 @@ class FooCollection extends \Spark\Middleware\Collection
     {
         $middlewares = array_merge([
             \trejeraos\SimpleServerMonitor\Auth\FooHandler::class
-        ], $defaults->getArrayCopy(), [
-            FooMiddleware::class
-        ]);
+        ], $defaults->getArrayCopy());
         parent::__construct($middlewares);
     }
 }
