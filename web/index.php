@@ -59,18 +59,18 @@ $injector->prepare(
         // ---
 
         // JSON output
-        $router->get('/info/system', 'trejeraos\SimpleServerMonitor\Domain\Monitor\System');
+        $router->get('/info/system', Domain\Monitor\System::class);
 
-        $router->get('/info/cpu', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Cpu');
-        $router->get('/info/memory', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Memory');
-        $router->get('/info/swap', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Swap');
+        $router->get('/info/cpu',    Domain\Monitor\Cpu::class);
+        $router->get('/info/memory', Domain\Monitor\Memory::class);
+        $router->get('/info/swap',   Domain\Monitor\Swap::class);
 
-        $router->get('/info/network', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Network');
-        $router->get('/info/bandwidth/{interface}[/{seconds}]', 'trejeraos\SimpleServerMonitor\Domain\Monitor\Bandwidth');
+        $router->get('/info/network', Domain\Monitor\Network::class);
+        $router->get('/info/bandwidth/{interface}[/{seconds}]', Domain\Monitor\Bandwidth::class);
 
 
         // HTML output
-        $router->get('/', 'trejeraos\SimpleServerMonitor\Domain\Frontend')->setResponder(\trejeraos\SimpleServerMonitor\Responder\TemplateResponder::class);
+        $router->get('/', Domain\Frontend::class)->setResponder(\trejeraos\SimpleServerMonitor\Responder\TemplateResponder::class);
     }
 );
 
