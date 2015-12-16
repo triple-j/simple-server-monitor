@@ -42,6 +42,11 @@ class Configuration {
 
         $this->loadXMLFile();
     }
+    
+    public function getBase()
+    {
+        return $this->dom->querySelector(':root > base')->nodeValue;
+    }
 
     public function getMyName() {
         return $this->dom->querySelector('option[name="my_name"]')->nodeValue;

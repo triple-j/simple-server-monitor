@@ -10,9 +10,6 @@ use Spark\Auth\Credentials\ExtractorInterface as CredentialsExtractorInterface;
 use Spark\Auth\Credentials\JsonExtractor;
 use trejeraos\SparkTest\Auth\FooHandler as FooAuthHandler;
 use trejeraos\SparkTest\Domain;
-use trejeraos\SimpleServerMonitor\Data\Config;
-
-Config::parse("config.xml");
 
 // Configure the dependency injection container
 $injector = new \Auryn\Injector;
