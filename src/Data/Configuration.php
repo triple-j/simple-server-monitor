@@ -10,8 +10,8 @@ use trejeraos\DOMSelector;
 
 class Configuration {
 
-    protected $defualt_file = __DIR__ . "/../config.xml";
-    protected $user_file    = __DIR__ . "/../../data/config.xml";
+    protected $defualt_file;
+    protected $user_file;
 
     /**
      * @var DOMDocument
@@ -29,6 +29,9 @@ class Configuration {
     #protected $credentials;
 
     public function __construct() {
+        $this->defualt_file = __DIR__ . "/../config.xml";
+        $this->user_file    = __DIR__ . "/../../data/config.xml";
+    
         #$this->my_name = "Steve";
 
         if (!is_file($this->user_file)) {

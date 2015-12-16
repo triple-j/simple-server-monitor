@@ -8,7 +8,7 @@ use \Exception;
  */
 class Config
 {
-    private static $configDirectories = array(__DIR__.'/../../', __DIR__.'/../');
+    private static $configDirectories = array();
     private static $xmlConfig = null;
 
     public static function parse($filename)
@@ -24,6 +24,8 @@ class Config
 
     public static function locate($filename)
     {
+        static::$configDirectories = array(__DIR__.'/../../', __DIR__.'/../');
+        
         $filepath = null;
 
         foreach (static::$configDirectories as $dir) {
