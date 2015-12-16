@@ -8,8 +8,8 @@ use Spark\Auth\Token\ExtractorInterface as TokenExtractorInterface;
 use Spark\Auth\Token\QueryExtractor;
 use Spark\Auth\Credentials\ExtractorInterface as CredentialsExtractorInterface;
 use Spark\Auth\Credentials\JsonExtractor;
-use trejeraos\SparkTest\Auth\FooHandler as FooAuthHandler;
-use trejeraos\SparkTest\Domain;
+use trejeraos\SimpleServerMonitor\Auth\FooHandler as FooAuthHandler;
+use trejeraos\SimpleServerMonitor\Domain;
 
 // Configure the dependency injection container
 $injector = new \Auryn\Injector;
@@ -19,11 +19,11 @@ $configuration->apply($injector);
 // Configure middleware
 $injector->alias(
     '\\Spark\\Middleware\\Collection',
-    '\\trejeraos\\SparkTest\\Middleware\\FooCollection'
+    '\\trejeraos\\SimpleServerMonitor\\Middleware\\FooCollection'
 );
 
 //START: auth
-$injector->alias(AdapterInterface::class, trejeraos\SparkTest\Auth\FooAdapter::class);
+$injector->alias(AdapterInterface::class, trejeraos\SimpleServerMonitor\Auth\FooAdapter::class);
 $injector->alias(AuthHandler::class, FooAuthHandler::class);
 $injector->share(FooAuthHandler::class);
 
@@ -36,11 +36,11 @@ $injector->alias(CredentialsExtractorInterface::class, JsonExtractor::class);
 $injector->define(JsonExtractor::class, [':identifier' => 'user', ':password' => 'password']);
 
 // share valid auth token class
-$injector->share(\trejeraos\SparkTest\Auth\ValidTokens::class);
+$injector->share(\trejeraos\SimpleServerMonitor\Auth\ValidTokens::class);
 //END: auth
 
 // share global config class
-$injector->share(\trejeraos\SparkTest\Data\Configuration::class);
+$injector->share(\trejeraos\SimpleServerMonitor\Data\Configuration::class);
 
 // Configure the router
 $injector->prepare(

@@ -1,9 +1,9 @@
 <?php
-namespace trejeraos\SparkTest\Domain\Test;
+namespace trejeraos\SimpleServerMonitor\Domain\Test;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
-use trejeraos\SparkTest\Data\Configuration;
+use trejeraos\SimpleServerMonitor\Data\Configuration;
 
 class Hello implements DomainInterface
 {

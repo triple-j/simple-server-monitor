@@ -4,7 +4,7 @@ namespace trejeraos\SimpleServerMonitor\Domain;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
-use trejeraos\SparkTest\Data\Configuration;
+use trejeraos\SimpleServerMonitor\Data\Configuration;
 
 class Frontend implements DomainInterface
 {

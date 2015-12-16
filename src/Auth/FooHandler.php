@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Auth;
+namespace trejeraos\SimpleServerMonitor\Auth;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;

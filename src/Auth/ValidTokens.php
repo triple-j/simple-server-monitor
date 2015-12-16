@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Auth;
+namespace trejeraos\SimpleServerMonitor\Auth;
 
 use \DateTime;
 use \DOMDocument;

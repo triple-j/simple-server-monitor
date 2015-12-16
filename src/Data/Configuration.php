@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Data;
+namespace trejeraos\SimpleServerMonitor\Data;
 
 use \Exception;
 use \DOMDocument;

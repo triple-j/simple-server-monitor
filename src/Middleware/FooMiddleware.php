@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Middleware;
+namespace trejeraos\SimpleServerMonitor\Middleware;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
