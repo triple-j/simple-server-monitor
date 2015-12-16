@@ -45,7 +45,7 @@ class Configuration {
     
     public function getBase()
     {
-        return $this->dom->querySelector(':root > base')->nodeValue;
+        return defined('APP_SCRIPT') ? APP_SCRIPT . '/' : '/';
     }
 
     public function getMyName() {

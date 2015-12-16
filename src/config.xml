@@ -5,6 +5,5 @@
         <option name="my_name">Kenneth</option>
     </general>
     <!-- just ignore me -->
-    <base>info.php/</base>
     <connection name="local" address="127.0.0.1" default="true" />
 </configuration>
