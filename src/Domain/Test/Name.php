@@ -1,10 +1,11 @@
 <?php
-namespace trejeraos\SparkTest\Domain;
+namespace trejeraos\SimpleServerMonitor\Domain\Test;
 
 use Spark\Adr\DomainInterface;
 use Spark\Payload;
-use trejeraos\SparkTest\Data\Configuration;
-use trejeraos\SparkTest\Auth\FooHandler as FooAuthHandler;
+use trejeraos\SimpleServerMonitor\Data\Configuration;
+use trejeraos\SimpleServerMonitor\Auth\FooHandler as FooAuthHandler;
+use trejeraos\SimpleServerMonitor\Domain\Restricted;
 
 class Name extends Restricted
 {

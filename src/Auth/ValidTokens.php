@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Auth;
+namespace trejeraos\SimpleServerMonitor\Auth;
 
 use \DateTime;
 use \DOMDocument;
@@ -8,7 +8,7 @@ use trejeraos\DOMSelector;
 
 class ValidTokens
 {
-    protected $token_file = __DIR__ . "/../../data/tokens.xml";
+    protected $token_file;
 
     protected $tokens = array();
 
@@ -19,6 +19,8 @@ class ValidTokens
 
     public function __construct()
     {
+        $this->token_file = __DIR__ . "/../../data/tokens.xml";
+    
         $this->createTokenFile();
         $this->loadXMLFile();
         $this->removeExpiredTokens();

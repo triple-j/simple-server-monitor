@@ -23,8 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "trejeraos\\SimpleServerMonitor\\": "src/",
-            "trejeraos\\SparkTest\\": "src/"
+            "trejeraos\\SimpleServerMonitor\\": "src/"
         }
     }
 }

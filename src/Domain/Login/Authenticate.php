@@ -1,8 +1,8 @@
 <?php
-namespace trejeraos\SparkTest\Domain\Login;
+namespace trejeraos\SimpleServerMonitor\Domain\Login;
 
 use Spark\Payload;
-use trejeraos\SparkTest\Domain\Restricted;
+use trejeraos\SimpleServerMonitor\Domain\Restricted;
 
 class Authenticate extends Restricted
 {

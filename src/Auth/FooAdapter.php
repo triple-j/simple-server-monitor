@@ -1,5 +1,5 @@
 <?php
-namespace trejeraos\SparkTest\Auth;
+namespace trejeraos\SimpleServerMonitor\Auth;
 
 use \DateTime;
 use Spark\Auth\AdapterInterface;
@@ -7,8 +7,8 @@ use Spark\Auth\Credentials;
 use Spark\Auth\Token;
 use Spark\Auth\Exception\InvalidException;
 use Spark\Auth\Exception\AuthException;
-use trejeraos\SparkTest\Data\Configuration;
-use trejeraos\SparkTest\Auth\ValidTokens;
+use trejeraos\SimpleServerMonitor\Data\Configuration;
+use trejeraos\SimpleServerMonitor\Auth\ValidTokens;
 
 ## Based on -- https://www.webstreaming.com.ar/articles/php-slim-token-authentication/
 
@@ -20,7 +20,7 @@ class FooAdapter implements AdapterInterface
     protected $credentials;
 
     /**
-     * @var \trejeraos\SparkTest\Auth\ValidTokens
+     * @var \trejeraos\SimpleServerMonitor\Auth\ValidTokens
      */
     protected $valid_tokens;
 

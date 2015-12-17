@@ -1,8 +1,8 @@
 <?php
-namespace trejeraos\SparkTest\Domain;
+namespace trejeraos\SimpleServerMonitor\Domain;
 
 use Spark\Adr\DomainInterface;
-use trejeraos\SparkTest\Auth\FooHandler as FooAuthHandler;
+use trejeraos\SimpleServerMonitor\Auth\FooHandler as FooAuthHandler;
 
 class Restricted implements DomainInterface
 {
