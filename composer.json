@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "sparkphp/spark": "^0.8.0",
-        "sparkphp/auth": "^0.2.2",
+        "sparkphp/spark": "^0.13.1",
+        "sparkphp/auth": "^0.3.1",
         "trejeraos/dom-selector": "~0.3.0",
         "league/plates": "^3.1"
     },
